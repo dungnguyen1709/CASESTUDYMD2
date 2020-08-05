@@ -1,23 +1,29 @@
-package case_study.model;
+package case_study.product;
 
-public class Product  {
+import java.util.Comparator;
+
+public class Sneaker {
     private String id;
     private String name;
-    private double price;
     private String color;
+    private String size;
+    private int price;
     private String brand;
 
-    public Product() {
+
+    public Sneaker() {
 
     }
 
-    public Product(String id, String name, double price, String color, String brand) {
+    public Sneaker(String id, String name, String color, String size, int price, String brand) {
         this.id = id;
         this.name = name;
-        this.price = price;
         this.color = color;
+        this.size = size;
+        this.price = price;
         this.brand = brand;
     }
+
     public String getId() {
         return id;
     }
@@ -34,20 +40,28 @@ public class Product  {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public String getColor() {
         return color;
     }
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getBrand() {
@@ -60,12 +74,14 @@ public class Product  {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "Sneaker{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", price=" + price +
                 ", color='" + color + '\'' +
+                ", size='" + size + '\'' +
+                ", price=" + price +
                 ", brand='" + brand + '\'' +
                 '}';
     }
+
 }
