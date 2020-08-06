@@ -21,6 +21,7 @@ public class SneakerManager  {
     private static final String THREE = "3";
     private static final String FOUR = "4";
     private static final String FIVE = "5";
+    private static final String SIX = "6";
     private static final String ZERO = "0";
 
     public SneakerManager(){
@@ -39,6 +40,7 @@ public class SneakerManager  {
             System.out.println("3. Xóa sản phẩm : ");
             System.out.println("4. Sửa sản phẩm : ");
             System.out.println("5. Sắp xếp sản phẩm : ");
+            System.out.println("6. Tìm kiếm : ");
             System.out.println("0. Thoát : ");
             System.out.println("-------");
 
@@ -63,6 +65,10 @@ public class SneakerManager  {
                 case FIVE:
                    sort();
                    break;
+                case SIX:
+                    System.out.println(" Input search : ");
+                    c.search(list);
+                    break;
                 case ZERO:
                     System.exit(0);
                 default:
@@ -73,10 +79,16 @@ public class SneakerManager  {
     }
     private void setDefaultData() {
         list.add(new Sneaker("066","StanSmith",40,"36-43",2300000,"Adidas"));
-        list.add(new Sneaker("099","Jordan4OffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
+        list.add(new Sneaker("099","AirJordan4xOffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
         list.add(new Sneaker("029","Presto",12,"38.5-41",15000000,"Nike&OffWhite"));
-        list.add(new Sneaker("179","Jordan4TravisScott",8,"38-43",10800000,"Jordan"));
+        list.add(new Sneaker("179","AirJordan4TravisScott",8,"38-43",10800000,"Jordan"));
         list.add(new Sneaker("097","BalenciagaTrackv3",17,"36-43",23000000,"Balenciaga"));
+        list.add(new Sneaker("101","AirJordan1ChicagoxOffWhite",3,"40-43",55000999,"Jordan&OffWhite"));
+        list.add(new Sneaker("700","yeezy700",11,"38-42",11999999,"Adidas"));
+        list.add(new Sneaker("123","CoverseCocaDenim",7,"40",7000000,"Converse"));
+        list.add(new Sneaker("1709","DiorxAirJordan1",222,"39-43",600000000,"Dior&Jordan"));
+
+
     }
 
     void sort() {

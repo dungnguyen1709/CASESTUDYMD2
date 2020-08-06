@@ -5,7 +5,9 @@ import case_study.product.Sneaker;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Control implements Setting {
+
     @Override
     public void display(ArrayList<Sneaker> list) {
         for (Sneaker sneaker : list) {
@@ -71,4 +73,22 @@ public class Control implements Setting {
             }
         }
     }
+
+    @Override
+    public void search(ArrayList<Sneaker> list) {
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine().trim();
+        boolean isExit = false;
+        for (Sneaker sneaker : list) {
+            if (sneaker.getName().equals(name)) {
+                System.out.println(" Đôi giày có tên : " + name + " |" + " có mã sản phẩm : " + sneaker.getId() + " |" + " số lượng : " + sneaker.getAmount() + " |" + " có size : " + sneaker.getSize() + " |" + " có giá : " + sneaker.getPrice() + " |" + " sản phẩm thuộc hãng : " + sneaker.getBrand());
+                isExit = true;
+            }
+        }
+        if (!isExit) {
+            System.out.println(" Không tìm thấy đôi giày có tên " + name);
+        }
+    }
+
+
 }

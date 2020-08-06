@@ -9,4 +9,5 @@ public interface Setting {
     void add(ArrayList<Sneaker> list);
     void remove(ArrayList<Sneaker> list,int i);
     void edit(ArrayList<Sneaker> list, int i);
+    void search(ArrayList<Sneaker> list);
 }
