@@ -20,8 +20,8 @@ public class Control implements Setting {
         String id = sc.nextLine();
         System.out.print("input name : ");
         String name = sc.nextLine();
-        System.out.print("input color : ");
-        String color = sc.nextLine();
+        System.out.print("input amount : ");
+        int amount = Integer.parseInt(sc.nextLine());
         System.out.print("input size : ");
         String size = sc.nextLine();
         System.out.print("input price : ");
@@ -29,7 +29,7 @@ public class Control implements Setting {
         System.out.print("input brand : ");
         String brand = sc.nextLine();
 
-        Sneaker sneaker = new Sneaker(id, name, color, size, price, brand);
+        Sneaker sneaker = new Sneaker(id, name, amount, size, price, brand);
         list.add(sneaker);
     }
 
@@ -52,8 +52,8 @@ public class Control implements Setting {
                 String id = sc.nextLine();
                 System.out.print("input name : ");
                 String name = sc.nextLine();
-                System.out.print("input color : ");
-                String color = sc.nextLine();
+                System.out.print("input amount : ");
+                int amount = Integer.parseInt(sc.nextLine());
                 System.out.print("input size : ");
                 String size = sc.nextLine();
                 System.out.print("input price : ");
@@ -63,7 +63,7 @@ public class Control implements Setting {
 
                 list.get(j).setId(id);
                 list.get(j).setName(name);
-                list.get(j).setColor(color);
+                list.get(j).setAmount(amount);
                 list.get(j).setSize(size);
                 list.get(j).setPrice(price);
                 list.get(j).setBrand(brand);

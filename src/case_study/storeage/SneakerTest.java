@@ -6,6 +6,5 @@ public class SneakerTest {
         SneakerManager sneakerManager = new SneakerManager();
         sneakerManager.startMenu();
 
-
     }
 }

@@ -5,7 +5,7 @@ import java.util.Comparator;
 public class Sneaker {
     private String id;
     private String name;
-    private String color;
+    private int amount;
     private String size;
     private int price;
     private String brand;
@@ -15,10 +15,10 @@ public class Sneaker {
 
     }
 
-    public Sneaker(String id, String name, String color, String size, int price, String brand) {
+    public Sneaker(String id, String name, int amount, String size, int price, String brand) {
         this.id = id;
         this.name = name;
-        this.color = color;
+        this.amount = amount;
         this.size = size;
         this.price = price;
         this.brand = brand;
@@ -40,12 +40,12 @@ public class Sneaker {
         this.name = name;
     }
 
-    public String getColor() {
-        return color;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public String getSize() {
@@ -56,7 +56,7 @@ public class Sneaker {
         this.size = size;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -77,7 +77,7 @@ public class Sneaker {
         return "Sneaker{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", color='" + color + '\'' +
+                ", amount='" + amount + '\'' +
                 ", size='" + size + '\'' +
                 ", price=" + price +
                 ", brand='" + brand + '\'' +

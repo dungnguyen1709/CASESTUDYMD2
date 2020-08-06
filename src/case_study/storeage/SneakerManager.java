@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class SneakerManager  {
+    // tính đa hình, biến c thực tế là 1 đối tượng của Control nhưng có kiểu Setting suy ra biến c sử dụng đc phương thức, thuộc tính của Control
     Setting c = (Setting) new Control();
     Scanner sc = new Scanner(System.in);
     ArrayList<Sneaker> list = new ArrayList<>();
@@ -22,7 +23,7 @@ public class SneakerManager  {
     private static final String FIVE = "5";
     private static final String ZERO = "0";
 
-    SneakerManager(){
+    public SneakerManager(){
         setDefaultData();
     }
 
@@ -35,8 +36,8 @@ public class SneakerManager  {
             System.out.println(" MENU : ");
             System.out.println("1. Hiển thị danh sách sản phẩm : ");
             System.out.println("2. Thêm sản phẩm : ");
-            System.out.println("3. Sửa sản phẩm : ");
-            System.out.println("4. Xóa sản phẩm : ");
+            System.out.println("3. Xóa sản phẩm : ");
+            System.out.println("4. Sửa sản phẩm : ");
             System.out.println("5. Sắp xếp sản phẩm : ");
             System.out.println("0. Thoát : ");
             System.out.println("-------");
@@ -50,14 +51,15 @@ public class SneakerManager  {
                     c.add(list);
                     break;
                 case THREE:
+                    System.out.println(" Input remove index : ");
+                    index = Integer.parseInt(sc.nextLine());
+                    c.remove(list,index );
+                    break;
+                case FOUR:
                     System.out.println(" Input edit index : ");
                     index = Integer.parseInt(sc.nextLine());
                     c.edit(list,index);
-                    break;
-                case FOUR:
-                    System.out.println(" Input remove index : ");
-                    index = Integer.parseInt(sc.nextLine());
-                    c.remove(list,index);
+                   break;
                 case FIVE:
                    sort();
                    break;
@@ -70,11 +72,11 @@ public class SneakerManager  {
         }
     }
     private void setDefaultData() {
-        list.add(new Sneaker("066","StanSmith","White","36-43",2300000,"Adidas"));
-        list.add(new Sneaker("099","Jordan4OffWhtie","White","38-40",18500000,"Jordan&OffWhite"));
-        list.add(new Sneaker("029","Presto","Black","38.5-41",15000000,"Nike&OffWhite"));
-        list.add(new Sneaker("179","Jordan4TravisScott","Blue","38-43",10800000,"Jordan"));
-        list.add(new Sneaker("097","BalenciagaTrackv3","White","36-43",23000000,"Balenciaga"));
+        list.add(new Sneaker("066","StanSmith",40,"36-43",2300000,"Adidas"));
+        list.add(new Sneaker("099","Jordan4OffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
+        list.add(new Sneaker("029","Presto",12,"38.5-41",15000000,"Nike&OffWhite"));
+        list.add(new Sneaker("179","Jordan4TravisScott",8,"38-43",10800000,"Jordan"));
+        list.add(new Sneaker("097","BalenciagaTrackv3",17,"36-43",23000000,"Balenciaga"));
     }
 
     void sort() {
@@ -82,7 +84,7 @@ public class SneakerManager  {
         System.out.println("1. Sắp xếp theo tên : ");
         System.out.println("2. Sắp xếp theo id : ");
         System.out.println("3. Sắp xếp theo giá : ");
-        System.out.println("4. Set Default : ");
+        System.out.println("4. Thoát : ");
 
         choice = sc.nextLine();
         switch (choice) {
@@ -96,10 +98,9 @@ public class SneakerManager  {
                 sortPrice();
                 break;
             case FOUR:
-                setDefaultData();
+                System.exit(0);
                 break;
             default:
-                sort();
         }
     }
 
