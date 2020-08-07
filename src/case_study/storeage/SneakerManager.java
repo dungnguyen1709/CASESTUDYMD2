@@ -27,7 +27,6 @@ public class SneakerManager implements Serializable {
     private static final String ZERO = "0";
 
     public SneakerManager(){
-       // setDefaultData();
         list = new ArrayList<>();
         list.add(new Sneaker("066","StanSmith",40,"36-43",2300000,"Adidas"));
         list.add(new Sneaker("099","AirJordan4xOffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
@@ -38,6 +37,10 @@ public class SneakerManager implements Serializable {
         list.add(new Sneaker("700","yeezy700",11,"38-42",11999999,"Adidas"));
         list.add(new Sneaker("123","CoverseCocaDenim",7,"40",7000000,"Converse"));
         list.add(new Sneaker("1709","DiorxAirJordan1",222,"39-43",600000000,"Dior&Jordan"));
+
+        for (Sneaker sneaker : list) {
+            System.out.println(sneaker);
+        }
 
 
     }
@@ -91,19 +94,6 @@ public class SneakerManager implements Serializable {
             }
         }
     }
-    // void setDefaultData() {
-//        list.add(new Sneaker("066","StanSmith",40,"36-43",2300000,"Adidas"));
-//        list.add(new Sneaker("099","AirJordan4xOffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
-//        list.add(new Sneaker("029","Presto",12,"38.5-41",15000000,"Nike&OffWhite"));
-//        list.add(new Sneaker("179","AirJordan4TravisScott",8,"38-43",10800000,"Jordan"));
-//        list.add(new Sneaker("097","BalenciagaTrackv3",17,"36-43",23000000,"Balenciaga"));
-//        list.add(new Sneaker("101","AirJordan1ChicagoxOffWhite",3,"40-43",55000999,"Jordan&OffWhite"));
-//        list.add(new Sneaker("700","yeezy700",11,"38-42",11999999,"Adidas"));
-//        list.add(new Sneaker("123","CoverseCocaDenim",7,"40",7000000,"Converse"));
-//        list.add(new Sneaker("1709","DiorxAirJordan1",222,"39-43",600000000,"Dior&Jordan"));
-
-
-   // }
 
     void sort() {
         System.out.println(" Chọn kiểu sắp xếp : ");
@@ -189,6 +179,5 @@ public class SneakerManager implements Serializable {
             e.printStackTrace();
         }
     }
-
 
 }
