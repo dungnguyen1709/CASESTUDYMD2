@@ -1,8 +1,9 @@
 package case_study.product;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Sneaker {
+public class Sneaker implements Serializable {
     private String id;
     private String name;
     private int amount;
