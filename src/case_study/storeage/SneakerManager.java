@@ -5,15 +5,16 @@ import case_study.controller.Control;
 import case_study.controller.Setting;
 import case_study.product.Sneaker;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class SneakerManager  {
+public class SneakerManager implements Serializable {
     // tính đa hình, biến c thực tế là 1 đối tượng của Control nhưng có kiểu Setting suy ra biến c sử dụng đc phương thức, thuộc tính của Control
     Setting c = (Setting) new Control();
     Scanner sc = new Scanner(System.in);
-    ArrayList<Sneaker> list = new ArrayList<>();
+    ArrayList<Sneaker> list;
 
 
     private static String choice;
@@ -26,7 +27,19 @@ public class SneakerManager  {
     private static final String ZERO = "0";
 
     public SneakerManager(){
-        setDefaultData();
+       // setDefaultData();
+        list = new ArrayList<>();
+        list.add(new Sneaker("066","StanSmith",40,"36-43",2300000,"Adidas"));
+        list.add(new Sneaker("099","AirJordan4xOffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
+        list.add(new Sneaker("029","Presto",12,"38.5-41",15000000,"Nike&OffWhite"));
+        list.add(new Sneaker("179","AirJordan4TravisScott",8,"38-43",10800000,"Jordan"));
+        list.add(new Sneaker("097","BalenciagaTrackv3",17,"36-43",23000000,"Balenciaga"));
+        list.add(new Sneaker("101","AirJordan1ChicagoxOffWhite",3,"40-43",55000999,"Jordan&OffWhite"));
+        list.add(new Sneaker("700","yeezy700",11,"38-42",11999999,"Adidas"));
+        list.add(new Sneaker("123","CoverseCocaDenim",7,"40",7000000,"Converse"));
+        list.add(new Sneaker("1709","DiorxAirJordan1",222,"39-43",600000000,"Dior&Jordan"));
+
+
     }
 
     public void startMenu(){
@@ -78,19 +91,19 @@ public class SneakerManager  {
             }
         }
     }
-     void setDefaultData() {
-        list.add(new Sneaker("066","StanSmith",40,"36-43",2300000,"Adidas"));
-        list.add(new Sneaker("099","AirJordan4xOffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
-        list.add(new Sneaker("029","Presto",12,"38.5-41",15000000,"Nike&OffWhite"));
-        list.add(new Sneaker("179","AirJordan4TravisScott",8,"38-43",10800000,"Jordan"));
-        list.add(new Sneaker("097","BalenciagaTrackv3",17,"36-43",23000000,"Balenciaga"));
-        list.add(new Sneaker("101","AirJordan1ChicagoxOffWhite",3,"40-43",55000999,"Jordan&OffWhite"));
-        list.add(new Sneaker("700","yeezy700",11,"38-42",11999999,"Adidas"));
-        list.add(new Sneaker("123","CoverseCocaDenim",7,"40",7000000,"Converse"));
-        list.add(new Sneaker("1709","DiorxAirJordan1",222,"39-43",600000000,"Dior&Jordan"));
+    // void setDefaultData() {
+//        list.add(new Sneaker("066","StanSmith",40,"36-43",2300000,"Adidas"));
+//        list.add(new Sneaker("099","AirJordan4xOffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
+//        list.add(new Sneaker("029","Presto",12,"38.5-41",15000000,"Nike&OffWhite"));
+//        list.add(new Sneaker("179","AirJordan4TravisScott",8,"38-43",10800000,"Jordan"));
+//        list.add(new Sneaker("097","BalenciagaTrackv3",17,"36-43",23000000,"Balenciaga"));
+//        list.add(new Sneaker("101","AirJordan1ChicagoxOffWhite",3,"40-43",55000999,"Jordan&OffWhite"));
+//        list.add(new Sneaker("700","yeezy700",11,"38-42",11999999,"Adidas"));
+//        list.add(new Sneaker("123","CoverseCocaDenim",7,"40",7000000,"Converse"));
+//        list.add(new Sneaker("1709","DiorxAirJordan1",222,"39-43",600000000,"Dior&Jordan"));
 
 
-    }
+   // }
 
     void sort() {
         System.out.println(" Chọn kiểu sắp xếp : ");
@@ -142,6 +155,39 @@ public class SneakerManager  {
                 return (int) (o1.getPrice() - o2.getPrice());
             }
         });
+    }
+
+    public void writeObject() {
+        try {
+            FileOutputStream fos = new FileOutputStream("PRODUCTS/shose.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(this.list);
+            oos.close();;
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readObject() {
+        try {
+            FileInputStream fis = new FileInputStream("PRODUCTS/shose.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            this.list = (ArrayList<Sneaker>) ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 
