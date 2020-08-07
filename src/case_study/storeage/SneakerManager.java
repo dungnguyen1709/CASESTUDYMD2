@@ -13,7 +13,7 @@ public class SneakerManager  {
     // tính đa hình, biến c thực tế là 1 đối tượng của Control nhưng có kiểu Setting suy ra biến c sử dụng đc phương thức, thuộc tính của Control
     Setting c = (Setting) new Control();
     Scanner sc = new Scanner(System.in);
-   public static ArrayList<Sneaker> list = new ArrayList<>();
+    ArrayList<Sneaker> list = new ArrayList<>();
 
 
     private static String choice;
@@ -78,7 +78,7 @@ public class SneakerManager  {
             }
         }
     }
-    public static void setDefaultData() {
+     void setDefaultData() {
         list.add(new Sneaker("066","StanSmith",40,"36-43",2300000,"Adidas"));
         list.add(new Sneaker("099","AirJordan4xOffWhtie",22,"38-40",18500000,"Jordan&OffWhite"));
         list.add(new Sneaker("029","Presto",12,"38.5-41",15000000,"Nike&OffWhite"));
