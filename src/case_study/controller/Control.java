@@ -77,10 +77,11 @@ public class Control implements Setting {
     @Override
     public void search(ArrayList<Sneaker> list) {
         Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine().trim();
+        String name = sc.nextLine();
         boolean isExit = false;
         for (Sneaker sneaker : list) {
-            if (sneaker.getName().equals(name)) {
+
+            if ((sneaker.getName().toUpperCase()).equals(name.toUpperCase())) {
                 System.out.println(" Đôi giày có tên : " + name + " |" + " có mã sản phẩm : " + sneaker.getId() + " |" + " số lượng : " + sneaker.getAmount() + "  " + "|" + " có size : " + sneaker.getSize() + " |" + " có giá : " + sneaker.getPrice() + " |" + " sản phẩm thuộc hãng : " + sneaker.getBrand());
                 isExit = true;
             }
